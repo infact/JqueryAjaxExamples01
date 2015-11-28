@@ -16,11 +16,23 @@ namespace JqueryAjaxExample
 
         }
         [WebMethod]
-        public static string GetData()
+        public static Employee[] BindEmployees()
         {
+            var employeeList = new Employee[]
+            {
+            new Employee { FirstName="Harry", LastName="Fields" , City="Bellevue",Country="USA" },
+            new Employee { FirstName="Alex", LastName="Yert" , City="Westj",Country="Japan" },
+            new Employee{ FirstName="Mool", LastName="Yerwfd" , City="WWSw",Country="Canada" }
+           };
 
-            return "This string is from Code behind";
-
+            return employeeList.ToArray();
+        }
+        public class Employee
+        {
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+            public string City { get; set; }
+            public string Country { get; set; }
         }
 
         [WebMethod]
